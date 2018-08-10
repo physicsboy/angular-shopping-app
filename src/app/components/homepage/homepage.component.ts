@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Product} from '../../model/product';
+import {CartService} from '../../services/cart/cart.service';
 
 @Component({
   selector: 'app-homepage',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  @Input() products: Product[];
+
+  constructor(private cartService: CartService) { }
 
   ngOnInit() {
   }
