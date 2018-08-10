@@ -1,3 +1,21 @@
-<p>
-  cart-page works!
-</p>
+<div class="product-row" *ngFor="let product of products">
+  <img [src]="product.images[0]"/>
+  <span class="name">{{product.name}}</span>
+  <span class="price">{{product.price}}</span>
+  <span class="size">size</span>
+  <span class="qty">{{product.quantity}}</span>
+  <span class="total">{{product.price * product.quantity}}</span>
+  <button class="remove" (click)="deleteProduct(product)">X</button>
+</div>
+<div class="checkout-area">
+  <div class="voucher-code">
+    <input type="text" placeholder="Enter promo code"/>
+    <button class="apply">APPLY</button>
+  </div>
+  <div class="order-summary">
+    <span class="subtotal">Subtotal: £{{cartTotal}}</span>
+    <span class="promo">Promo: - £0.00</span>
+    <span class="total">Total: £{{cartTotal}}</span>
+  </div>
+  <button class="checkout" (click)="onCheckout()">CHECKOUT</button>
+</div>
