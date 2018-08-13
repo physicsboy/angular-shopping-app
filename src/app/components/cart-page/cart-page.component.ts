@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {CartService} from '../../services/cart/cart.service';
 import {Product} from '../../model/product';
+import {MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-cart-page',
@@ -13,7 +14,9 @@ export class CartPageComponent implements OnInit {
   numProducts: number;
   cartTotal: number;
 
-  constructor(private cartService: CartService) {
+  constructor(
+    private cartService: CartService,
+    @Inject(MAT_DIALOG_DATA) private data: any) {
     this.products = [];
     this.numProducts = 0;
     this.cartTotal = 0;

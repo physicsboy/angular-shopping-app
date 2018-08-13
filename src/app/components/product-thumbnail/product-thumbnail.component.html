@@ -1,5 +1,5 @@
-<img src="{{product.images[0]}}"/>
-<div class="info-section">
-  <span class="name">{{product.name}}</span>
-  <span class="price">{{product.price}}</span>
-</div>
+<mat-card (click)="openPopup(this)">
+  <img mat-card-image src="{{product.images[0]}}"/>
+  <mat-card-title class="name">{{product.name}}</mat-card-title>
+  <mat-card-subtitle class="price">{{product.price}}</mat-card-subtitle>
+</mat-card>

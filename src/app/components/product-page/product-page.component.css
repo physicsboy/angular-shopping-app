@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+}
+
+.detail-section {
+  flex-direction: column;
+}
+
+mat-divider {
+  margin: 0 24px 0 24px;
+}
+
+img.main-img {
+  height: 300px;
+}
+
+img.thumb-img {
+  height: 50px;
+  margin: 7px 10px 10px 0;
+}
+
+div {
+  font-family: 'Roboto', sans-serif;
+}
+
+.basket {
+  margin-top: 10px;
+}
+
+.item-code {
+  color: lightgrey;
+}

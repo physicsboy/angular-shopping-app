@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {Product} from '../../model/product';
 import {CartService} from '../../services/cart/cart.service';
+import {MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-product-page',
@@ -11,13 +12,17 @@ export class ProductPageComponent implements OnInit {
 
   @Input() product: Product;
 
-  constructor(private cartService: CartService) { }
+  constructor(
+    private cartService: CartService,
+    @Inject(MAT_DIALOG_DATA) private data: Product
+  ) { }
 
   ngOnInit() {
   }
 
-  onAddToCart() {
-    this.cartService.addToCart(this.product);
+  onAddToCart(product) {
+    this.cartService.addToCart(product);
+    console.log(product);
   }
 
 }

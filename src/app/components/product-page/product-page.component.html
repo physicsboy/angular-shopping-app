@@ -1,14 +1,17 @@
-<div class="image-section">
-  <img src="{{product.images[0]}}"/>
-  <img class="thumbs"
-       *ngFor="let img of product.images"
-       [src]="img"/>
-</div>
-<div class="vertical-divider"></div>
-<div class="detail-section">
-  <span class="item-code">ITEM #: {{product.id}}</span>
-  <span class="name">{{product.name}}</span>
-  <div class="sizes">Size selector here</div>
-  <span class="prod-description">{{product.description}}</span>
-  <button class="basket" (click)="onAddToCart()">ADD TO CART</button>
+<div class="container">
+  <div class="image-section">
+    <img class="main-img" src="{{data.images[0]}}"/>
+    <img class="thumb-img"
+         *ngFor="let img of data.images"
+         [src]="img"/>
+  </div>
+  <mat-divider [vertical]="true"></mat-divider>
+  <div class="detail-section">
+    <div class="item-code xx-small bold">ITEM #: {{data.id}}</div>
+    <div class="name xx-large bold">{{data.name}}</div>
+    <div class="price bold">£{{data.price}}</div>
+    <div class="sizes">Size selector here</div>
+    <div class="prod-description">{{data.description}}</div>
+    <button mat-flat-button color="accent" class="basket" (click)="onAddToCart(this)">ADD TO CART</button>
+  </div>
 </div>

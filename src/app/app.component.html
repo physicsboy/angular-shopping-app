@@ -1,3 +1,9 @@
-<h1>Shopping App</h1>
-<hr>
+<mat-toolbar color="primary">
+  <h1>Shopping App</h1>
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="openCartDialog()">
+    <mat-icon matBadge="{{numCart}}" matBadgeColor="warn">shopping_cart</mat-icon>
+  </button>
+  <button mat-button (click)="exampleDialog()">Click</button>
+</mat-toolbar>
 <app-homepage [products]="products"></app-homepage>

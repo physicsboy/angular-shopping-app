@@ -7,16 +7,19 @@ export class CartService {
 
   products: any[];
   cartTotal: number;
+  numCart: number;
 
   constructor() {
     this.products = [];
     this.cartTotal = 0;
+    this.numCart = 0;
   }
 
   addToCart(product) {
     let alreadyExists = false;
     const parsedPrice = parseFloat(product.price);
     this.cartTotal += parsedPrice;
+    this.numCart++;
 
     // Search product in cart and increment quantity
     this.products = this.products.map(prod => {
@@ -47,5 +50,9 @@ export class CartService {
   flushCart() {
     this.products = [];
     this.cartTotal = 0;
+  }
+
+  getCartNum() {
+    return this.numCart;
   }
 }

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Product} from '../../model/product';
-import {CartService} from '../../services/cart/cart.service';
+import {ProductPageComponent} from '../product-page/product-page.component';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-product-thumbnail',
@@ -11,17 +12,17 @@ export class ProductThumbnailComponent implements OnInit {
 
   @Input() product: Product;
 
-  constructor(private cartService: CartService) { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
   }
 
-  onAddToCart() {
-    this.cartService.addToCart(this.product);
-  }
-
-  //TODO: Add routing for clicking thumbnail and open product page
-  onProductClick() {
+  openPopup(prod) {
+    this.dialog.open(ProductPageComponent, {
+      autoFocus: true,
+      width: '600px',
+      data: prod.product
+    });
 
   }
 
